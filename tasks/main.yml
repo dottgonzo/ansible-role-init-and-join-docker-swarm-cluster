@@ -22,6 +22,8 @@
   when: manager_join_token.stdout is defined
   changed_when: false
 
+## alert here if !token
+
 - name: Get Docker Worker Join Token
   register: worker_join_token
   shell: docker swarm join-token worker | grep 'token'|awk '{print($5)}'
