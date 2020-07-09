@@ -19,7 +19,8 @@
     name: "DOCKER_SWARM_MANAGER_TOKEN_HOLDER"
     token: "{{ manager_join_token.stdout }}"
     hash:
-  when: manager_join_token.stdout is defined
+  when:
+    - primarymanager is defined
   changed_when: false
 
 - name: Get Docker Worker Join Token
