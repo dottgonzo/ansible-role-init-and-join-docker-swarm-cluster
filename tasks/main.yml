@@ -1,9 +1,9 @@
 ---
-- name: Init a new swarm with default parameters
+- name: "Init a new swarm with default parameters for {{ swarm_init_manager_ip }}"
   docker_swarm:
     state: present
     advertise_addr: "{{ swarm_internal_ip_addr }}"
-    remote_addrs: ["{{ swarm_init_manager_ip }}:2377"]
+    listen_addr: "0.0.0.0:2377"
   when:
     - primarymanager is defined
 
